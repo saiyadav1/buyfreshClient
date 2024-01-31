@@ -274,6 +274,7 @@ const CustomerFarm = () => {
               src="https://assets3.lottiefiles.com/packages/lf20_UJNc2t.json"
               style={{ height: '300px', width: '300px' }}
             >
+              <p>Your order has been recieved by farmer, he will let you soon.</p>
             </Player>
           </div>
         </Modal.Body>
