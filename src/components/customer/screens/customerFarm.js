@@ -13,7 +13,7 @@ const CustomerFarm = () => {
   const { user_state,api } = useSelector(state => state.authdata);
   const [showOrderDetails, setShowOrderDetails] = useState(false);
   const [buyedArrData, BetbuyedArrData] = useState([]);
-  const [orderAmount,setOrderAmount]=useState(0)
+  const [orderAmount,setOrderAmount]=useState(0);
   function handleOderConfirlModal() {
     setShowOrderDetails(false);
   }
@@ -85,7 +85,7 @@ const CustomerFarm = () => {
     }
     else {
       try {
-        const response = await axios.post('http://localhost:8000/customerNewOrder', {
+        const response = await axios.post(`${api}/customerNewOrder`, {
           customerEmail: user_state.name,
           customer_id: user_state.user_id,
           customerLocation:user_state.user_location,
