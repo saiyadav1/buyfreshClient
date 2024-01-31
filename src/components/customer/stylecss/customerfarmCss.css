@@ -1,0 +1,36 @@
+.customerFarm-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+}
+
+.customerfarmproductCard-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.orderConfirm-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+}
+
+@media screen and (min-width:1000px) {
+    .customerFarm-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0 15%;
+    }
+
+    .customerfarmproductCard-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 25px;
+        flex-wrap: wrap
+    }
+}

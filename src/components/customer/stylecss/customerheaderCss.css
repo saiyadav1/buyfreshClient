@@ -1,0 +1,150 @@
+.header-container {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30px;
+}
+
+.header-logo-div {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+}
+
+.header-logo{
+    height: 40px;
+}
+
+.header-togglebtn {
+    border: none;
+    background-color: transparent;
+}
+
+.header-togglebtn:hover {
+    transform: rotate(90deg);
+    transition: 1s;
+    color: #718355;
+}
+
+.header-links {
+    height: 0;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.show-links {
+    overflow: visible;
+}
+
+.header-link-btn {
+    margin-bottom: 10px;
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    background-color: #718355;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;
+    border:none;
+}
+
+.header-link-btn:hover {
+    transform: scale(1.05);
+    transition: .8s;
+}
+
+.header-link-btn>p {
+    margin: 0;
+}
+
+
+@media screen and (min-width: 1000px) {
+    .header-container {
+        width: 100%;
+        height: 10vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        background-color: #d0d0d0;
+    }
+
+    .header-togglebtn {
+        display: none;
+    }
+
+    .header-links {
+        display: flex;
+        gap: 25px;
+        overflow: visible;
+    }
+
+    .header-link-btn {
+        text-decoration: none;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 16px;
+        font-weight: 500;
+        background-color: transparent;
+        color: #000;
+        border:none;
+        padding: 0;
+    }
+
+    .header-link-btn:hover {
+        transform: scale(1.05);
+        transition: 0.8s;
+        color:#718355;
+        font-weight: 600;
+    }
+
+    .header-link-btn > p {
+        margin: 0;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+
+
+
+
+
+  /* .header-togglebtn {
+  
+
+  .header-links{
+    display: flex;
+    align-items: center;
+    height: auto;
+  }
+
+  .header-link-btn{
+    padding: 0;
+    margin: 0 15px;
+    width: auto;
+    background-color: transparent;
+    color: #000;
+    cursor: pointer;
+  }
+
+  .header-btn>p {
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+  }
+
+  .header-btn>p:hover {
+    transform: scale(1.1);
+    border-bottom: 1px solid greenyellow;
+  }
+
+  .header-logo-div {
+    background-color: transparent;
+  } */
+}

@@ -1,0 +1,17 @@
+.sellerhome-container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+.sellerhome-header{
+    height: 10vh;
+}
+
+@media screen and (min-width:1000px) {
+    .sellerhome-container{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 5%;
+    }
+}

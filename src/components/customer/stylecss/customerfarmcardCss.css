@@ -1,0 +1,65 @@
+.farmproductcard-container {
+    width: 300px;
+    height: 360px;
+    /* padding: 5px 2px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border: 1px solid #f1eeee;
+    box-shadow: 5px 5px 6px #00000026;
+    border-radius: 15px;
+}
+
+.farmproductcard-container-header {
+    bottom: 10;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 10px 0;
+}
+
+.farmproductcard-container-header>p {
+    width: 90%;
+    color: #000;
+    margin: 0;
+    font-size: 18px;
+    font-family: monospace;
+    text-align: left;
+}
+
+.farmproductcard-container>p {
+    width: 90%;
+    color: #000;
+    margin: 0;
+    padding: 20px 0 1px 0px;
+    font-size: 18px;
+    font-family: monospace;
+    text-align: left;
+}
+
+.farmproductcard-container>img {
+    width: 90%;
+    height: 160px;
+}
+
+.farmproductcard-details {
+    width: 90%;
+    display: flex;
+    justify-content: space-between
+}
+
+.farmproductcard-details {
+    width: 90%;
+    display: flex;
+    justify-content: space-between
+}
+
+.farmproductcard-details>p {
+    color: #000;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: monospace;
+}
