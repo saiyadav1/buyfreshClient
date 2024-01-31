@@ -12,7 +12,7 @@ const Home = () => {
   const dispatch = useDispatch();
   let location = useLocation();
   const [loading, setLoading] = useState(false);
-
+  const {stateName,api} = useSelector(state => state.authdata);
   useEffect(() => {
     if (location.state == null) {
       let data = JSON.parse(localStorage.getItem('auth_user_data'));
@@ -28,7 +28,7 @@ const Home = () => {
 
   const handleCustomerLogin = async (obj) => {
     try {
-      const response = await axios.post('http://localhost:8000/customerLogin', {
+      const response = await axios.post(`${api}/customerLogin`, {
         type: 'CUSTOMER',
         email: obj.userEmail,
         password: obj.userPassword
@@ -51,7 +51,7 @@ const Home = () => {
 
   const handleSellerLogin = async (obj) => {
     try {
-      const response = await axios.post('http://localhost:8000/sellerlogin', {
+      const response = await axios.post(`${api}/sellerlogin`, {
         type: 'SELLER',
         email: obj.userEmail,
         password: obj.userPassword

@@ -4,8 +4,10 @@ import contactCss from '../stylecss/contactCss.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Toast from 'react-bootstrap/Toast';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 import { faSquareXTwitter, faSquareWhatsapp, faSquareFacebook } from '@fortawesome/free-brands-svg-icons'
 const Contact = () => {
+  const {stateName,api} = useSelector(state => state.authdata);
   const [Toastobj, setToastObj] = useState({
     showToast: false,
     toastMsg: '',
@@ -47,7 +49,7 @@ const Contact = () => {
     }
     else {
       try {
-        const response = await axios.post('http://localhost:8000/contactmessage', {
+        const response = await axios.post(`${api}/contactmessage`, {
           type: 'CUSTOMER',
           name: formData.name,
           email: formData.email,

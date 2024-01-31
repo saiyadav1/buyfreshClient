@@ -116,71 +116,7 @@ const CustomerLogin = () => {
         }
     }
 
-    // async function handleLogin() {
-    //     if (formData.email === null || formData.email === undefined || formData.email === '') {
-    //         alert('Enter valid Email');
-    //     }
-    //     else if (!formData.email.includes('@') || !formData.email.includes('.')) {
-    //         alert('Enter valid Email');
-    //     } else if (formData.password.length < 8) {
-    //         alert('password wrong')
-    //     } else {
-    //         try {
-    //             const response = await axios.post('http://localhost:8000/customerLogin', {
-    //                 type: 'CUSTOMER',
-    //                 email: formData.email,
-    //                 password: formData.password
-    //             });
-    //             if (response.data.status === 'Success') {
-    //                 if (formData.remberMe) {
-    //                     let obj = {
-    //                         userType: 'CUSTOMER',
-    //                         userEmail: formData.email,
-    //                         userPassword: formData.password,
-    //                         userAccessToken: response.data.acessToken
-    //                     }
-    //                     localStorage.setItem('auth_user_data', JSON.stringify(obj));
-    //                 }
-
-    //                 let userDetails = {
-    //                     user_token_id: response.data.acessToken,
-    //                     user_id: response.data.user_id,
-    //                     user_type: 'CUSTOMER',
-    //                     name: response.data.name,
-    //                     user_location: response.data.user_location,
-    //                 }
-    //                 dispatch(handleUserState(userDetails));
-    //                 setToastObj({
-    //                     showToast: true,
-    //                     toastMsg: 'Login Sucessfull!',
-    //                     color: 'green'
-    //                 });
-    //                 navigate('/customer/home');
-    //             } else if (response.data.response === 'Password wrong') {
-    //                 setToastObj({
-    //                     showToast: true,
-    //                     toastMsg: 'Enter correct password!',
-    //                     color: 'red'
-    //                 });
-    //             } else if (response.data.response === 'No such user exist') {
-    //                 setToastObj({
-    //                     showToast: true,
-    //                     toastMsg: 'No such user exist, try different email!',
-    //                     color: 'red'
-    //                 });
-    //             } else {
-    //                 setToastObj({
-    //                     showToast: true,
-    //                     toastMsg: 'OOps, something went wrong!',
-    //                     color: 'red'
-    //                 });
-    //             }
-    //         } catch (error) {
-    //             console.error('Error:', error);
-    //         }
-    //     }
-    // }
-
+   
 
       async function handleLogin() {
         if (formData.email === null || formData.email === undefined || formData.email === '') {
@@ -192,19 +128,19 @@ const CustomerLogin = () => {
             alert('password wrong')
         } else {
             try {
-                let config = {
-                    headers: {
-                        "Access-Control-Allow-Origin": "*",
-                        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-                        "credentials": "false"
-                      }
-                  }
+                // let config = {
+                //     headers: {
+                //         "Access-Control-Allow-Origin": "*",
+                //         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+                //         "credentials": "false"
+                //       }
+                //   }
 
                 const response = await axios.post(`${api}/customerLogin`, {
                     type: 'CUSTOMER',
                     email: formData.email,
                     password: formData.password
-                },config);
+                });
                 console.log('response',response)
                 if (response.data.status === 'Success') {
                     if (formData.remberMe) {

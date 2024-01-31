@@ -6,6 +6,7 @@ export const AuthSlice = createSlice({
     user_id: '',
     user_state: {},
     api:'https://farmtohome.onrender.com',
+    // api:'http://localhost:8000',
     stateName: [
       {
         "key": "AN",

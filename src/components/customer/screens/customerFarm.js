@@ -6,14 +6,19 @@ import '../stylecss/customerfarmCss.css'
 import { useSelector } from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
 const CustomerFarm = () => {
   let params = useParams();
   const [FarmData, setFarmData] = useState(null);
   const [productsArr, setProductsArr] = useState([]);
-  const { user_state,api } = useSelector(state => state.authdata);
+  const { user_state, api } = useSelector(state => state.authdata);
   const [showOrderDetails, setShowOrderDetails] = useState(false);
   const [buyedArrData, BetbuyedArrData] = useState([]);
-  const [orderAmount,setOrderAmount]=useState(0);
+  const [orderAmount, setOrderAmount] = useState(0);
+  const [orderConfirmLottie,setOrderConfirmLottie]=useState(false);
+  function handleOrderConfirmLottie(){
+    setOrderConfirmLottie(false)
+  }
   function handleOderConfirlModal() {
     setShowOrderDetails(false);
   }
@@ -63,7 +68,7 @@ const CustomerFarm = () => {
 
   const handleBuyProduct = async () => {
     let dummyArr = [];
-    let totalAmount=0;
+    let totalAmount = 0;
     productsArr.forEach(item => {
       if (item.broughtQuantity > 0) {
         let obj = {
@@ -71,7 +76,7 @@ const CustomerFarm = () => {
           broughtQuantity: item.broughtQuantity,
           productPrice: item.priceperQuantity
         }
-        totalAmount+=item.broughtQuantity*item.priceperQuantity;
+        totalAmount += item.broughtQuantity * item.priceperQuantity;
         dummyArr.push(obj)
       }
     })
@@ -88,18 +93,20 @@ const CustomerFarm = () => {
         const response = await axios.post(`${api}/customerNewOrder`, {
           customerEmail: user_state.name,
           customer_id: user_state.user_id,
-          customerLocation:user_state.user_location,
+          customerLocation: user_state.user_location,
           orderData: buyedArrData,
-          orderAmount:orderAmount,
+          orderAmount: orderAmount,
           orderTime: date.toUTCString(),
           farmer_id: FarmData.farmer_id,
-          orderStatus:'open'
+          orderStatus: 'open'
         });
         // console.log('response', response);
         if (response.data.status === 'Success') {
-          console.log('success');
-          handleOderConfirlModal()
-
+          handleOderConfirlModal();
+          setOrderConfirmLottie(true);
+          setTimeout(()=>{
+            setOrderConfirmLottie(false);
+          },6000)
         } else {
           console.log('failure');
         }
@@ -167,7 +174,7 @@ const CustomerFarm = () => {
                   fontSize: 14,
                   color: '#000',
                   margin: 0,
-                  fontWeight:600
+                  fontWeight: 600
                 }}>
                   Product Name
                 </p>
@@ -178,7 +185,7 @@ const CustomerFarm = () => {
                   fontSize: 14,
                   color: '#000',
                   margin: 0,
-                  fontWeight:600
+                  fontWeight: 600
                 }}>
                   Quantity * Price
                 </p>
@@ -245,6 +252,34 @@ const CustomerFarm = () => {
           </div>
         </Modal.Footer>
       </Modal>
+
+
+
+      <Modal show={orderConfirmLottie} onHide={setOrderConfirmLottie}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Body>
+          <div style={{
+            heigth: '100%',
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
+            <Player
+              autoplay
+              loop
+              src="https://assets3.lottiefiles.com/packages/lf20_UJNc2t.json"
+              style={{ height: '300px', width: '300px' }}
+            >
+            </Player>
+          </div>
+        </Modal.Body>
+      </Modal>
+
+     
     </div>
   )
 }
