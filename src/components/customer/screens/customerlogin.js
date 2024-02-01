@@ -74,7 +74,7 @@ const CustomerLogin = () => {
         }
         else {
             try {
-                const response = await axios.post(`${api}customerregistraion`, {
+                const response = await axios.post(`${api}/customerregistraion`, {
                     type: 'CUSTOMER',
                     userLocation: formData.userLocation,
                     name: formData.name,
