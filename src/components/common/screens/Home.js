@@ -83,7 +83,7 @@ const Home = () => {
       <div className="body-p2">
         <div className="body-p2-div">
           <img
-            src={require("../../../assets/images/veg-pic.jpg")}
+            src={require("../../../assets/images/veg-pic.jpeg")}
             alt="veg"
             className="body-p2-img"
           />

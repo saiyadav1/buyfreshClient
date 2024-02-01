@@ -105,7 +105,7 @@ const CustomerHome = () => {
           </button>
         </div>
         <img
-          src={require('../../../assets/images/veg-pic.jpg')}
+          src={require('../../../assets/images/veg-pic.jpeg')}
         />
       </div>
       <div className='customerhome-filter-container'>
